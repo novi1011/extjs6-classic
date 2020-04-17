@@ -10,16 +10,13 @@ Ext.define('MyApp.store.Personnel', {
     ],
 
     proxy: {
-        type: 'jsonp',
-        api:{
-            read: "http://localhost/extjs-classic/MyApp_php/readpersonnel.php",
-            update: "http://localhost/extjs-classic/MyApp_php/update.php",
-            create: "http://localhost/extjs-classic/MyApp_php/create.php",
-            destroy: "http://localhost/extjs-classic/MyApp_php/destroy.php"
-        },
+        type: 'rest',
+        url: 'http://localhost/cobalaravel/public/api/cars',
+        
         reader: {
             type: 'json',
-            rootProperty: 'items'
+            rootProperty: 'data'
         }
     }
+
 });

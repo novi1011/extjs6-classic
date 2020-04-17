@@ -57,6 +57,8 @@ Ext.define('MyApp.view.main.MainController', {
             name : "",
             brands: "",
             color : "",
+            created_at: Date(),
+            updated_at: Date(),
             };
             
         var model =store.getModel();

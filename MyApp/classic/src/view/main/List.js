@@ -18,19 +18,16 @@ Ext.define('MyApp.view.main.List', {
     plugins: {
         ptype: 'rowediting'
     },
-    // ga boleh ada property yang sama. plugins kedua bakal nimpa plugins yang pertama. 
-
+     
     columns: [
         // { text: 'Id', dataIndex: 'id', width: 80 },
         { text: 'Name', dataIndex: 'name', editor: 'textfield'}, 
         { text: 'Brand', dataIndex: 'brands', editor: 'textfield' },
         { text: 'Color', dataIndex: 'color', editor: 'textfield' },
-        { text: 'Createt_At', dataIndex: 'created_at', width: 200 },
+        { text: 'Created_At', dataIndex: 'created_at', width: 200 },
         { text: 'Updated_At', dataIndex: 'updated_at', width: 200 }
     ],
    
-   
-
     tbar: [{
         xtype: 'button',
         text: 'Add',

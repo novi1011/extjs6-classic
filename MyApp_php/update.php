@@ -16,7 +16,7 @@
     $name = $records->{"name"};
     $brands = $records->{"brands"};
     $color = $records->{"color"};
-    $created_at = $records->{"created_at"};
+    $created_at = $records->date("Y-m-d")->{"created_at"};
     $updated_at = $records->{"updated_at"};
     $success ='false';
     $error = 'no error';
