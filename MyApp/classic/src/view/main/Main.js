@@ -20,6 +20,7 @@ Ext.define('MyApp.view.main.Main', {
 
     controller: 'main',
     viewModel: 'main',
+    plugins: 'viewport',
 
     ui: 'navigation',
 
@@ -74,8 +75,8 @@ Ext.define('MyApp.view.main.Main', {
         }
     },
 
-    
-    
+
+
     items: [{
         title: 'Home',
         iconCls: 'fa-home',
@@ -101,7 +102,23 @@ Ext.define('MyApp.view.main.Main', {
         bind: {
             html: '{loremIpsum}'
         },
-       
+    }, {
+        title: 'Logout',
+        iconCls: 'fa-sign-out',
+        tabConfig: {
+
+            listeners: {
+                click: 'onClickButton'
+            }
+        }
+
     }]
+
+
+    // items: [{
+    //     xtype: 'button',
+    //     title: 'Logout',
+    //     handler: 'onClickButton'
+    //     }]
 
 });

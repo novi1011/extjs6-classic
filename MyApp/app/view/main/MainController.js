@@ -8,7 +8,7 @@ Ext.define('MyApp.view.main.MainController', {
     extend: 'Ext.app.ViewController',
 
     alias: 'controller.main',
-
+    
     onItemSelected: function (sender, record) {
         var button = Ext.ComponentQuery.query('button#delete')[0];
         console.log(button)
@@ -69,5 +69,15 @@ Ext.define('MyApp.view.main.MainController', {
         //grid.editingPlugin.startEdit(record, 0);
         // rowediting.startEdit(record, 0);
         // window.rowediting = rowediting;   
+        },
+
+        onClickButton: function () {
+            
+            localStorage.removeItem('TutorialLoggedIn');
+            this.getView().destroy();        
+            Ext.create({
+                xtype: 'login'
+            });
         }
+       
 });

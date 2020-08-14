@@ -1,3 +1,5 @@
+var itemsPerPage = 5; //menampilkan data hanya 5 baris
+
 Ext.define('MyApp.store.Personnel', {
     extend: 'Ext.data.Store',
 
@@ -8,6 +10,8 @@ Ext.define('MyApp.store.Personnel', {
     fields: [
         'id', 'name', 'brands', 'color', 'created_at', 'updated_at'
     ],
+
+    pageSize: itemsPerPage, //items per page
 
     proxy: {
         type: 'rest',
@@ -20,3 +24,4 @@ Ext.define('MyApp.store.Personnel', {
     }
 
 });
+

@@ -7,8 +7,10 @@ use App\Car;
 
 class CarController extends Controller
 {
-    public function index () {
-        $data=Car::orderBy('name','asc')->get();
+    public function index ($request) {
+        $limit = $request->limit;
+        return $data=Car::orderBy('name','asc')->paginate($limit);
+        
         return ['success' => true, 'data' => $data] ;
     }
 
@@ -31,23 +33,12 @@ class CarController extends Controller
     }
 
     public function update(Request $request, $id) {
-        $data = Car::find($id);
-        $data->name = $request->name;
-        $data->brands = $request->brands;
-        $data->color = $request->color;
-        foreach ($data as $car){
-            $data['name'] = $car;
-            $data['brands'] = $car;
-            $data['color'] = $car;
-        }
-        Car::where($id)->update([$data]);
-        Car::where('id')->update(['name'=>$data['name'], 'brands'=>['brands'], 'color'=>['color']]);
-        
-        
-        $data->save();
+        $data = Car::findorfail($id);
+        $requestdata = $request->all();
+        $data->update($requestdata);
+        // $data->save();
 
-        return ['success' => true, 'data' => $data];
-
+        // return ['success' => true, 'data' => $data];
     }
  
 }
